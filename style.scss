@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root{
+    color-scheme: light dark;
+}
+*{
+    font-family: "Inter", sans-serif;
+}
+$lighter: #ffffff;
+$light: #f5fef3;
+$dark: #111111;
+$darker: #000008;
+.dark{
+    color-scheme: dark;
+}
+.light{
+    color-scheme: light;
+}
+body{
+    transition: .1s;
+    margin-left: 2.1em;
+    margin-right: 2.1em;
+    background-color: light-dark($light,$dark) ;
+    color: light-dark($darker,$lighter);
+}
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+header{
+    display: flex;
+}
+.github{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: light-dark($darker,$lighter);
+    border-radius: 100em;
+    padding: .2em;
+    gap: .3em;
+    width: min-content;
+    text-decoration: none;
+    white-space: nowrap;
+    color: light-dark($lighter,$darker);
+    font-weight: bold;
+    p{
+        line-height: 0;
+        margin-left: .5em;
+        margin-right: .5em;
+    }
+    img{
+        width: 3em;
+        height: 3em;
+        border-radius: 100%;
+    }
+    transition: gap .4s;
+}
+.github:hover{
+    gap: 1em;
+}

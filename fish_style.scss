@@ -1,0 +1,114 @@
+.swimmable{
+    overflow: hidden;
+    position: relative;
+}
+.fish{
+    position:absolute;
+    background-image: url(LongF1.png);
+    width:200px;
+    height: 100px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.babel{
+    position:absolute;
+    background-image: url(babel.png);
+    width:100px;
+    height: 100px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0%;
+    animation: BobLeftAndRight 2s infinite,FloatUp 20s infinite ease-in-out, dissapear 14s ease-in-out;
+}
+.babel:hover{
+    cursor:pointer;
+    scale:150%;
+    transition: 1s;
+}
+.fish.f1{
+    animation: LongSwimming 1s infinite,BobUpAndDown 3s infinite ease-in-out,swimming 60s infinite;
+}
+.fish.f2{
+    animation: SmallSwimming 1s infinite,BobUpAndDown 3s infinite ease-in-out,swimming 60s infinite;
+}
+.first{
+    color: $white;
+}
+
+@keyframes swimming {
+    0%{
+        transform: translateX(200vw);
+    }
+    100%{
+        transform: translateX(-200vw);
+    }
+}
+@keyframes BobUpAndDown{
+    0%{
+        translate: 0 0;
+    }
+    50%{
+        translate: 0 40%;
+    }
+    100%{
+        translate: 0 0;
+    }
+}
+@keyframes BobLeftAndRight{
+    0%{
+        translate: 0;
+    }
+    50%{
+        translate: 70%;
+    }
+    100%{
+        translate: 0;
+    }
+}
+@keyframes dissapear{
+    80%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+@keyframes FloatUp{
+    0%{
+        transform: translateY(0vh);
+    }
+    100%{
+        transform: translateY(-200vh) rotate(180deg);
+    }
+}
+@keyframes LongSwimming {
+    0%{
+        background-image: url(LongF1.png);
+    }
+    49%{
+        background-image: url(LongF1.png);
+    }
+    50%{
+        background-image: url(LongF2.png);
+    }
+    100%{
+        background-image: url(LongF2.png);
+    }   
+}
+@keyframes SmallSwimming {
+    0%{
+        background-image: url(SmallF1.png);
+    }
+    49%{
+        background-image: url(SmallF1.png);
+    }
+    50%{
+        background-image: url(SmallF2.png);
+    }
+    100%{
+        background-image: url(SmallF2.png);
+    }
+    
+}
