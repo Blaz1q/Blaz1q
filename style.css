@@ -1,10 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
 :root {
   color-scheme: light dark;
 }
 
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Inter", sans-serif;
+}
+
+body {
+  transition: 0.2s;
+  background-color: light-dark(#f5fef3, #111111);
+  color: light-dark(#000008, #ffffff);
+  padding: 2em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
 }
 
 .dark {
@@ -15,22 +28,16 @@
   color-scheme: light;
 }
 
-body {
-  transition: 0.1s;
-  margin-left: 2.1em;
-  margin-right: 2.1em;
-  background-color: light-dark(#f5fef3, #111111);
-  color: light-dark(#000008, #ffffff);
-}
-
 nav {
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
 }
 
-header {
-  display: flex;
+h1 {
+  font-size: 2em;
+  font-weight: 700;
 }
 
 .github {
@@ -55,11 +62,59 @@ header {
   margin-right: 0.5em;
 }
 .github img {
-  width: 3em;
-  height: 3em;
+  width: 2.5em;
+  height: 2.5em;
   border-radius: 100%;
 }
-
 .github:hover {
   gap: 1em;
+}
+
+#theme-toggle {
+  background: none;
+  border: 2px solid currentColor;
+  border-radius: 2em;
+  font-size: 1.2em;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  color: light-dark(#000008, #ffffff);
+}
+#theme-toggle:hover {
+  background-color: light-dark(#cffac5, #292929);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+section a {
+  font-weight: 600;
+  color: inherit;
+}
+section a:hover {
+  text-decoration: underline;
+}
+section h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.2em;
+}
+
+ul {
+  list-style: disc inside;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1em;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
 }/*# sourceMappingURL=style.css.map */

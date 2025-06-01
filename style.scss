@@ -1,35 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-:root{
-    color-scheme: light dark;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  color-scheme: light dark;
 }
-*{
-    font-family: "Inter", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
+
 $lighter: #ffffff;
 $light: #f5fef3;
 $dark: #111111;
 $darker: #000008;
+
+body {
+  transition: 0.2s;
+  background-color: light-dark($light, $dark);
+  color: light-dark($darker, $lighter);
+  padding: 2em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
+}
 .dark{
     color-scheme: dark;
 }
 .light{
     color-scheme: light;
 }
-body{
-    transition: .1s;
-    margin-left: 2.1em;
-    margin-right: 2.1em;
-    background-color: light-dark($light,$dark) ;
-    color: light-dark($darker,$lighter);
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
 }
-nav{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
 }
-header{
-    display: flex;
-}
+
 .github{
     display: flex;
     flex-direction: row-reverse;
@@ -49,12 +62,66 @@ header{
         margin-right: .5em;
     }
     img{
-        width: 3em;
-        height: 3em;
+        width: 2.5em;
+        height: 2.5em;
         border-radius: 100%;
     }
     transition: gap .4s;
+    &:hover{
+        gap: 1em;
+    }
 }
-.github:hover{
+
+#theme-toggle {
+  background: none;
+  border: 2px solid currentColor;
+  border-radius: 2em;
+  font-size: 1.2em;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  color: light-dark($darker, $lighter);
+
+  &:hover {
+    background-color: light-dark(scale-color($light, $lightness: -10%), scale-color($dark, $lightness: +10%));
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+section{
+    a {
+        font-weight: 600;
+        color: inherit;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.2em;
+}
+} 
+
+
+
+ul {
+  list-style: disc inside;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1em;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 1em;
+  }
 }

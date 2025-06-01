@@ -5,15 +5,29 @@ class ToggleSwitch{
     }
 }
 var light_dark = new ToggleSwitch;
-light_dark.isToggled = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-function DayNight(){
-    let body = document.body;
-    if(light_dark.isToggled){
-        body.classList.add("light");
-        body.classList.remove("dark");
-    }else{
-        body.classList.add("dark");
-        body.classList.remove("light");
+const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+light_dark.isToggled = prefersDark; // jeśli preferuje ciemny, to zaczynamy od "dark"
+function loadThemeToggleIcon(){
+    const button = document.getElementById("theme-toggle");
+    if(prefersDark){
+        button.textContent = "☀️";
     }
-    light_dark.Toggle();
+    else{
+        button.textContent = "🌙"; 
+    }
+}
+function DayNight() {
+  const body = document.body;
+  const button = document.getElementById("theme-toggle");
+
+  if (light_dark.isToggled) {
+    body.classList.add("light");
+    body.classList.remove("dark");
+    button.textContent = "🌙"; // noc
+  } else {
+    body.classList.add("dark");
+    body.classList.remove("light");
+    button.textContent = "☀️"; // dzień
+  }
+  light_dark.Toggle();
 }
